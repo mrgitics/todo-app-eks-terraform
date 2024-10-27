@@ -1,0 +1,22 @@
+*.tfstate
+*.tfstate.*
+.terraform/
+
+
+# Ignore AWS credentials
+*.pem
+.aws/credentials
+.aws/config
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.swp
+.terraform.lock.hcl
+
+# Ignore log files
+*.log
+
+# Ignore sensitive information and local config
+secret_*
+config.json
