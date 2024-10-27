@@ -27,9 +27,9 @@ resource "aws_eks_cluster" "this" {
   role_arn = var.cluster_role_arn
 
   vpc_config {
-      subnet_ids         = concat(var.public_subnet_ids, var.private_subnet_ids)  # Public and Private subnets
-      security_group_ids = [var.security_group_id]
-    }
+    subnet_ids         = concat(var.public_subnet_ids, var.private_subnet_ids)
+    security_group_ids = [var.security_group_id]
+  }
 }
 resource "aws_eks_node_group" "this" {
   cluster_name    = aws_eks_cluster.this.name

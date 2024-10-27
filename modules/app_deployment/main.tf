@@ -1,3 +1,4 @@
+
 resource "kubernetes_deployment" "backend_app" {
   metadata {
     name = var.backend_app_name
@@ -19,10 +20,10 @@ resource "kubernetes_deployment" "backend_app" {
         container {
           image = var.backend_image
           name  = var.backend_app_name
-          port {   # Change `ports` to `port`
+          port {
             container_port = var.backend_container_port
           }
-          # Environment variables for backend database
+
           env {
             name  = "DB_HOST"
             value = var.db_host
@@ -63,7 +64,7 @@ resource "kubernetes_service" "backend_service" {
   }
   spec {
     type = "ClusterIP"
-    port {  # Change `ports` to `port`
+    port {
       port        = var.backend_service_port
       target_port = var.backend_container_port
     }
@@ -94,10 +95,10 @@ resource "kubernetes_deployment" "frontend_app" {
         container {
           image = var.frontend_image
           name  = var.frontend_app_name
-          port {  # Change `ports` to `port`
+          port {
             container_port = var.frontend_container_port
           }
-          # Environment variables for backend connection
+
           env {
             name  = "REACT_APP_BACKEND_HOST"
             value = "server"
@@ -118,7 +119,7 @@ resource "kubernetes_service" "frontend_service" {
   }
   spec {
     type = "LoadBalancer"
-    port {  # Change `ports` to `port`
+    port {
       port        = var.frontend_service_port
       target_port = var.frontend_container_port
     }

@@ -15,11 +15,11 @@ backend_image = "mrgitics/todo-app-backend"
 
 # Number of replicas for frontend and backend deployments
 frontend_replicas = 2
-backend_replicas = 2
+backend_replicas  = 2
 
-db_name       = "postgres"
-db_username   = "postgres"
-db_password   = "postgres"
+db_name     = "postgres"
+db_username = "postgres"
+db_password = "postgres"
 
 node_desired_size = 2
 node_min_size     = 1

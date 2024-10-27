@@ -16,5 +16,5 @@ output "auth_token" {
 }
 output "security_group_id" {
   description = "Security group ID for the EKS cluster"
-  value       = aws_security_group.eks_cluster_sg.id  # Make sure this is the correct SG reference in the EKS module
+  value       = aws_security_group.eks_cluster_sg.id
 }

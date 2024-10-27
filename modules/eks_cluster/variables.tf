@@ -25,13 +25,12 @@ variable "security_group_id" {
   description = "Security Group ID for EKS Cluster"
   type        = string
 }
-# Node Group IAM Role ARN
+
 variable "node_group_role_arn" {
   description = "IAM role ARN for EKS Node Group"
   type        = string
 }
 
-# Node Group Scaling Configuration
 variable "node_desired_size" {
   description = "Desired number of nodes"
   type        = number
@@ -50,7 +49,7 @@ variable "node_max_size" {
   default     = 3
 }
 
-# EC2 Instance Type for Node Group
+
 variable "instance_type" {
   description = "EC2 instance type for EKS Node Group"
   type        = string

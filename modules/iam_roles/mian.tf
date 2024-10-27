@@ -3,8 +3,8 @@ resource "aws_iam_role" "eks_cluster_role" {
 
   assume_role_policy = jsonencode({
     Statement = [{
-      Action    = "sts:AssumeRole"
-      Effect    = "Allow"
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
       Principal = {
         Service = "eks.amazonaws.com"
       }
@@ -18,8 +18,8 @@ resource "aws_iam_role" "eks_node_group_role" {
 
   assume_role_policy = jsonencode({
     Statement = [{
-      Action    = "sts:AssumeRole"
-      Effect    = "Allow"
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
       Principal = {
         Service = "ec2.amazonaws.com"
       }
@@ -47,13 +47,13 @@ resource "aws_iam_role_policy_attachment" "ec2_container_registry_readonly" {
   role       = aws_iam_role.eks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
-# Grant access to describe VPC resources (for network permissions)
+
 resource "aws_iam_role_policy_attachment" "vpc_access_policy" {
   role       = aws_iam_role.eks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
 }
 
-# Grant RDS connectivity permissions (read-only should be sufficient for most cases)
+
 resource "aws_iam_role_policy_attachment" "rds_describe_policy" {
   role       = aws_iam_role.eks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess"

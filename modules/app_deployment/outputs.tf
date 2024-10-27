@@ -1,5 +1,5 @@
 output "backend_service_name" {
-  value = kubernetes_service.backend_service.metadata[0].name
+  value       = kubernetes_service.backend_service.metadata[0].name
   description = "The name of the backend service"
 }
 output "backend_service_cluster_ip" {

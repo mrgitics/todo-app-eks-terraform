@@ -49,7 +49,7 @@ This project has a simple three-tier architecture:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-github-username/todo-app-terraform-eks.git
+   git clone https://github.com/mrgitics/todo-app-eks-terraform.git
    cd todo-app-terraform-eks
 
 2. **Configure AWS credentials:**
@@ -66,11 +66,35 @@ This project has a simple three-tier architecture:
 
 4. **Deploy with Terraform:**
 
-    bash
-    Copy code
+    
     terraform init
     terraform apply
     Terraform will set up the VPC, subnets, EKS cluster, RDS instance, and deploy the application to EKS.
+
+    ![Architecture Diagram](./images/code.png)
+
+    **Troubleshooting**  
+    If you encounter errors related to `app_deployment` when running `terraform apply`, it may be because the EKS cluster has not yet been fully created or configured. To resolve this, try applying Terraform in two stages:
+
+    - **Stage 1:** Run Terraform for the infrastructure setup only (EKS cluster, VPC, and security groups):
+
+      ```bash
+      terraform apply --target=module.eks_cluster --target=module.vpc --target=module.security_group --target=module.iam_roles
+      ```
+
+    - **Stage 2:** Once the infrastructure is created, configure `kubectl` to connect to the EKS cluster:
+
+      ```bash
+      aws eks update-kubeconfig --region <your-region> --name <your-cluster-name>
+      ```
+
+    - **Stage 3:** After verifying `kubectl` connectivity, apply the remaining Terraform configuration to deploy the application:
+
+      ```bash
+      terraform apply
+      ```
+
+    Following these steps should allow Terraform to complete successfully without encountering `app_deployment` errors.
     After deployment, the frontend service’s external IP will be available in the output, and you can access the application through that IP.
 
 5. **Access the Application:**
@@ -81,8 +105,6 @@ This project has a simple three-tier architecture:
 ## Cleanup
     To destroy the infrastructure and avoid incurring additional costs:
 
-    bash
-    Copy code
     terraform destroy
 
 ## Exposed Ports
