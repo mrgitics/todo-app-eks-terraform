@@ -54,7 +54,7 @@ This project has a simple three-tier architecture:
 
 2. **Configure AWS credentials:**
 
-    Ensure that your AWS CLI is configured, or set the AWS credentials using environment variables.
+    Ensure that your AWS CLI, Terraform and Kubectl is configured.
 
 3. **Modify Terraform variables:**
 
@@ -66,9 +66,13 @@ This project has a simple three-tier architecture:
 
 4. **Deploy with Terraform:**
 
-    
+
     terraform init
+
+    terraform plan
+    
     terraform apply
+    
     Terraform will set up the VPC, subnets, EKS cluster, RDS instance, and deploy the application to EKS.
 
     ![Architecture Diagram](./images/code.png)
