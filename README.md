@@ -2,16 +2,6 @@
 
 This project is a simple To-Do List application, containerized and deployed on AWS EKS with Terraform. It demonstrates a full-stack setup using a React frontend, Node.js/Express backend, and PostgreSQL database, all managed in an AWS EKS (Elastic Kubernetes Service) cluster. The frontend and backend images are available on Docker Hub, making it easy for others to clone and deploy this application with minimal configuration.
 ![Architecture Diagram](./images/terraform.png)
-## Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Architecture](#architecture)
-- [Setup and Installation](#setup-and-installation)
-- [Exposed Ports](#exposed-ports)
-- [Deployment Details](#deployment-details)
-- [Additional Notes](#additional-notes)
-- [Credits](#credits)
-- [Future Improvements](#future-improvements)
 
 ## Features
 - **Create To-Dos:** Add new items to your list.
@@ -43,7 +33,9 @@ This project has a simple three-tier architecture:
 
 ### Prerequisites
 - **AWS Account:** Required for deploying EKS, RDS, and other resources.
+- **AWS CLI** Make sure the AWS Command Line Interface is installed.
 - **Terraform:** Ensure Terraform is installed (version 0.13+).
+- **kubectl:** Ensure Kubernetes command-line is installed.
 
 ### Steps to Deploy
 
@@ -54,7 +46,11 @@ This project has a simple three-tier architecture:
 
 2. **Configure AWS credentials:**
 
-    Ensure that your AWS CLI, Terraform and Kubectl is configured.
+    Ensure that your AWS CLI is configured.
+    Run the following command to enter your AWS Access Key, Secret Key, region, and output format:
+    ```bash
+      aws configure
+      ```
 
 3. **Modify Terraform variables:**
 
@@ -66,17 +62,13 @@ This project has a simple three-tier architecture:
 
 4. **Deploy with Terraform:**
 
-
+    ```bash    
     terraform init
-
     terraform plan
-    
     terraform apply
-    
+    ```
     Terraform will set up the VPC, subnets, EKS cluster, RDS instance, and deploy the application to EKS.
-
     ![Architecture Diagram](./images/code.png)
-
     **Troubleshooting**  
     If you encounter errors related to `app_deployment` when running `terraform apply`, it may be because the EKS cluster has not yet been fully created or configured. To resolve this, try applying Terraform in two stages:
 
@@ -127,13 +119,8 @@ This project has a simple three-tier architecture:
     ClusterIP: Internal networking for backend and database access.
 
 ## Additional Notes
-    Security: This setup uses basic security configurations suitable for testing and demonstration. In a production setup, consider using Secrets Manager, secure VPC configurations, and IAM roles with minimal privileges.
+    Security: This setup uses basic security configurations suitable for testing and demonstration.
 
 ## Credits
     Developed by Andor Margitics as part of a DevOps exercise to demonstrate containerization, Terraform deployment, and AWS EKS orchestration.
-
-## Future Improvements
-    Add authentication for users.
-    Implement input validation on the frontend.
-    Enhance database security by using AWS Secrets Manager for credentials.
 
