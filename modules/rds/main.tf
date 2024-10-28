@@ -25,13 +25,13 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 
 resource "aws_security_group" "db_sg" {
   name_prefix = "${var.db_name}-db-sg-"
-  vpc_id      = var.vpc_id # Ensure this is the EKS VPC ID
+  vpc_id      = var.vpc_id 
 
   ingress {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Use the passed variable
+    cidr_blocks = ["0.0.0.0/0"] 
   }
 
   egress {
@@ -43,11 +43,11 @@ resource "aws_security_group" "db_sg" {
 }
 resource "aws_db_parameter_group" "postgresql_parameters" {
   name        = "custom-pg-ssl"
-  family      = "postgres16" # Use the correct family based on your RDS engine version
+  family      = "postgres16" 
   description = "Custom PostgreSQL parameter group with SSL adjustments"
 
   parameter {
     name  = "rds.force_ssl"
-    value = "1" # Set to "0" to disable SSL, but not recommended for production
+    value = "1" 
   }
 }

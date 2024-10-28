@@ -38,7 +38,6 @@ variable "backend_replicas" {
   default     = 2
 }
 
-# RDS module-specific variables
 variable "allocated_storage" {
   description = "The allocated storage in gigabytes for the database"
   type        = number
