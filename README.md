@@ -10,12 +10,14 @@ This project is a simple To-Do List application, containerized and deployed on A
 - **Fully Containerized:** Frontend, backend, and database are containerized and deployed on AWS EKS using Terraform.
 
 ## Technologies Used
-- **Frontend:** React
-- **Backend:** Node.js, Express
-- **Database:** PostgreSQL
-- **Containerization:** Docker
-- **Infrastructure as Code (IaC):** Terraform for EKS setup
-- **Hosting Platform:** AWS EKS (Elastic Kubernetes Service)
+- [![React][React.js]](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [![Node.js][Node.js]](https://nodejs.org/) - A JavaScript runtime built on Chrome's V8 engine.
+- [![Express][Express.js]](https://expressjs.com/) - A minimal and flexible Node.js web application framework.
+- [![PostgreSQL][PostgreSQL]](https://www.postgresql.org/) - A powerful, open-source object-relational database system.
+- [![Docker][Docker]](https://www.docker.com/) - A platform for developing, shipping, and running applications inside containers.
+- [![Terraform][Terraform]](https://www.terraform.io/) - An open-source Infrastructure as Code software tool.
+- [![AWS EKS][AWS-EKS]](https://aws.amazon.com/eks/) - A managed Kubernetes service provided by AWS.
+
 
 ## Architecture
 This project has a simple three-tier architecture:
@@ -124,3 +126,11 @@ This project has a simple three-tier architecture:
 ## Credits
     Developed by Andor Margitics as part of a DevOps exercise to demonstrate containerization, Terraform deployment, and AWS EKS orchestration.
 
+<!-- MARKDOWN LINKS & IMAGES -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+[Docker]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Terraform]: https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white
+[AWS-EKS]: https://img.shields.io/badge/AWS_EKS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white
